@@ -63,6 +63,7 @@ class WeatherApp extends StatelessWidget {
                     Expanded(
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
                           Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -76,10 +77,11 @@ class WeatherApp extends StatelessWidget {
                                   color: Colors.white,
                                 ),
                               ),
+                              const SizedBox(height: 5),
                               Text(
-                                "Kucukcekmece",
+                                "07.50 PM - Pazartesi, 28 Ekim 2022",
                                 style: GoogleFonts.lato(
-                                  fontSize: 20,
+                                  fontSize: 14,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
@@ -90,20 +92,31 @@ class WeatherApp extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
-                                "ISTANBUL",
+                                "24\u2103",
                                 style: GoogleFonts.lato(
-                                  fontSize: 35,
+                                  fontSize: 85,
                                   fontWeight: FontWeight.bold,
                                   color: Colors.white,
                                 ),
                               ),
-                              Text(
-                                "Kucukcekmece",
-                                style: GoogleFonts.lato(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
-                                  color: Colors.white,
-                                ),
+                              Row(
+                                children: [
+                                  SvgPicture.asset(
+                                    "assets/moon.svg",
+                                    height: 30,
+                                    width: 30,
+                                    color: Colors.white,
+                                  ),
+                                  const SizedBox(width: 15),
+                                  Text(
+                                    "Gece",
+                                    style: GoogleFonts.lato(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.white,
+                                    ),
+                                  ),
+                                ],
                               ),
                             ],
                           ),
@@ -111,32 +124,158 @@ class WeatherApp extends StatelessWidget {
                       ),
                     ),
                     Container(
-                      margin: const EdgeInsets.symmetric(vertical: 40),
+                      margin: const EdgeInsets.symmetric(vertical: 30),
                       decoration: BoxDecoration(
                         border: Border.all(
                           color: Colors.white30,
                         ),
                       ),
                     ),
-                    Row(
-                      children: [
-                        Text(
-                          "ISTANBUL",
-                          style: GoogleFonts.lato(
-                            fontSize: 35,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                    Padding(
+                      padding: const EdgeInsets.fromLTRB(5, 0, 5, 10),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Column(
+                            children: [
+                              Text(
+                                "Rüzgar",
+                                style: GoogleFonts.lato(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                "10",
+                                style: GoogleFonts.lato(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                "km/h",
+                                style: GoogleFonts.lato(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 5,
+                                    width: 50,
+                                    color: Colors.white38,
+                                  ),
+                                  Container(
+                                    height: 5,
+                                    width: 10,
+                                    color: Colors.greenAccent,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 5),
+                            ],
                           ),
-                        ),
-                        Text(
-                          "Kucukcekmece",
-                          style: GoogleFonts.lato(
-                            fontSize: 20,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.white,
+                          Column(
+                            children: [
+                              Text(
+                                "Yagmur",
+                                style: GoogleFonts.lato(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                "10",
+                                style: GoogleFonts.lato(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                "%",
+                                style: GoogleFonts.lato(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 5,
+                                    width: 50,
+                                    color: Colors.white38,
+                                  ),
+                                  Container(
+                                    height: 5,
+                                    width: 20,
+                                    color: Colors.greenAccent,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 5),
+                            ],
                           ),
-                        ),
-                      ],
+                          Column(
+                            children: [
+                              Text(
+                                "Nem",
+                                style: GoogleFonts.lato(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                "10",
+                                style: GoogleFonts.lato(
+                                  fontSize: 22,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Text(
+                                "%",
+                                style: GoogleFonts.lato(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                              const SizedBox(height: 5),
+                              Stack(
+                                children: [
+                                  Container(
+                                    height: 5,
+                                    width: 50,
+                                    color: Colors.white38,
+                                  ),
+                                  Container(
+                                    height: 5,
+                                    width: 30,
+                                    color: Colors.red,
+                                  ),
+                                ],
+                              ),
+                              const SizedBox(height: 5),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
