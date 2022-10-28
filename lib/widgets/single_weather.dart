@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:weather_app/models/weather_location.dart';
 
 class SingleWeather extends StatelessWidget {
-  const SingleWeather({super.key});
+  final int index;
+  const SingleWeather({super.key, required this.index});
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +26,7 @@ class SingleWeather extends StatelessWidget {
                     children: [
                       const SizedBox(height: 120),
                       Text(
-                        "ISTANBUL",
+                        locationList[index].city,
                         style: GoogleFonts.lato(
                           fontSize: 35,
                           fontWeight: FontWeight.bold,
@@ -33,7 +35,7 @@ class SingleWeather extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        "07.50 PM - Pazartesi, 28 Ekim 2022",
+                        locationList[index].dateTime,
                         style: GoogleFonts.lato(
                           fontSize: 14,
                           fontWeight: FontWeight.bold,
@@ -46,7 +48,7 @@ class SingleWeather extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        "24\u2103",
+                        locationList[index].temparature,
                         style: GoogleFonts.lato(
                           fontSize: 85,
                           fontWeight: FontWeight.bold,
@@ -56,14 +58,14 @@ class SingleWeather extends StatelessWidget {
                       Row(
                         children: [
                           SvgPicture.asset(
-                            "assets/moon.svg",
+                            locationList[index].iconUrl,
                             height: 30,
                             width: 30,
                             color: Colors.white,
                           ),
                           const SizedBox(width: 15),
                           Text(
-                            "Gece",
+                            locationList[index].weatherType,
                             style: GoogleFonts.lato(
                               fontSize: 20,
                               fontWeight: FontWeight.w500,
@@ -102,7 +104,7 @@ class SingleWeather extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        "10",
+                        locationList[index].wind.toString(),
                         style: GoogleFonts.lato(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -148,7 +150,7 @@ class SingleWeather extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        "10",
+                        locationList[index].rain.toString(),
                         style: GoogleFonts.lato(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,
@@ -194,7 +196,7 @@ class SingleWeather extends StatelessWidget {
                       ),
                       const SizedBox(height: 5),
                       Text(
-                        "10",
+                        locationList[index].humidity.toString(),
                         style: GoogleFonts.lato(
                           fontSize: 22,
                           fontWeight: FontWeight.bold,

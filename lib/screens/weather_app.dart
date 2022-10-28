@@ -2,6 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:weather_app/models/weather_location.dart';
 import 'package:weather_app/widgets/single_weather.dart';
 
 class WeatherApp extends StatelessWidget {
@@ -104,7 +105,11 @@ class WeatherApp extends StatelessWidget {
                 ],
               ),
             ),
-            const SingleWeather(),
+            PageView.builder(
+              scrollDirection: Axis.horizontal,
+              itemCount: locationList.length,
+              itemBuilder: (ctx, i) => SingleWeather(index: i),
+            ),
           ],
         ),
       ),
