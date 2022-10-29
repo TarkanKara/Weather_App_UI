@@ -4,9 +4,23 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:weather_app/models/weather_location.dart';
 import 'package:weather_app/widgets/single_weather.dart';
+import 'package:weather_app/widgets/slider_dot.dart';
 
-class WeatherApp extends StatelessWidget {
+class WeatherApp extends StatefulWidget {
   const WeatherApp({super.key});
+
+  @override
+  State<WeatherApp> createState() => _WeatherAppState();
+}
+
+class _WeatherAppState extends State<WeatherApp> {
+  int currentPage = 0;
+
+  void changePage(int index) {
+    setState(() {
+      currentPage = index;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,54 +72,16 @@ class WeatherApp extends StatelessWidget {
               margin: const EdgeInsets.fromLTRB(20, 120, 0, 0),
               child: Row(
                 children: [
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    width: 18,
-                    height: 8,
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    width: 18,
-                    height: 8,
-                    decoration: const BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    width: 18,
-                    height: 8,
-                    decoration: const BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                    ),
-                  ),
-                  Container(
-                    margin: const EdgeInsets.symmetric(horizontal: 5),
-                    width: 18,
-                    height: 8,
-                    decoration: const BoxDecoration(
-                      color: Colors.white54,
-                      borderRadius: BorderRadius.all(
-                        Radius.circular(5),
-                      ),
-                    ),
-                  ),
+                  for (int i = 0; i < locationList.length; i++)
+                    if (i == currentPage)
+                      SliderDot(isActive: true)
+                    else
+                      SliderDot(isActive: false),
                 ],
               ),
             ),
             PageView.builder(
+              onPageChanged: changePage,
               scrollDirection: Axis.horizontal,
               itemCount: locationList.length,
               itemBuilder: (ctx, i) => SingleWeather(index: i),
