@@ -36,7 +36,7 @@ final locationList = [
     humidity: 10,
   ),
   WeatherLocation(
-    city: 'Ankara',
+    city: 'Van',
     dateTime: '23:05 — Cuma, 28 Ekim 2022',
     temparature: '15\u2103',
     weatherType: 'Bulutlu',
