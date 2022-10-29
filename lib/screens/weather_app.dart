@@ -1,10 +1,16 @@
-// ignore_for_file: avoid_unnecessary_containers, depend_on_referenced_packages
+// ignore_for_file: depend_on_referenced_packages, import_of_legacy_library_into_null_safe
 
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:weather_app/models/weather_location.dart';
 import 'package:weather_app/widgets/single_weather.dart';
 import 'package:weather_app/widgets/slider_dot.dart';
+
+//package:transformer_page_view
+//PubDev
+//Paket ile ilgili hata alındığında flutter run --no-sound-null-safety
+import 'package:weather_app/widgets/buildin_transformer.dart';
+import 'package:transformer_page_view/transformer_page_view.dart';
 
 class WeatherApp extends StatefulWidget {
   const WeatherApp({super.key});
@@ -90,7 +96,8 @@ class _WeatherAppState extends State<WeatherApp> {
                 ],
               ),
             ),
-            PageView.builder(
+            TransformerPageView(
+              transformer: ScaleAndFadeTransformer(),
               onPageChanged: changePage,
               scrollDirection: Axis.horizontal,
               itemCount: locationList.length,
